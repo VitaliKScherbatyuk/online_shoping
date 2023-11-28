@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bucket</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/start.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/button.css">
+</head>
+<body>
+<h1 th:text="#{home.bucket}">Bucket</h1>
+<form th:action="@{/bucket/updateAll}" method="post">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" th:text="#{bucket.productName}">Product Name</th>
+            <th scope="col" th:text="#{bucket.description}">Description</th>
+            <th scope="col" th:text="#{bucket.price}">Price</th>
+            <th scope="col" th:text="#{bucket.image}">Image</th>
+            <th scope="col" th:text="#{bucket.amount}">Amount</th>
+            <th scope="col" th:text="#{bucket.delete}">Delete</th>
+            <th scope="col" th:text="#{bucket.status}">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bucketItem: ${buckets}">
+            <td th:text="${bucketItem.product.productName}"></td>
+            <td th:text="${bucketItem.product.description}"></td>
+            <td th:text="${bucketItem.product.price + ' грн.'}"></td>
+            <td>
+                <img th:src="${'data:image/jpeg;base64,' + bucketItem.product.encodedImage}"
+                     alt="Product Image" style="max-width: 100px; max-height: 100px;"/>
+            </td>
+            <td>
+                <form th:action="@{'/bucket/updateAmount/' + ${bucketItem.id}}" method="post">
+                    <label>
+                        <input type="number" name="amount" min="1" max="${bucketItem.product.remainder}"
+                               th:value="${bucketItem.amount == null ? 1 : bucketItem.amount}" required="required"/>
+                    </label>
+                    <input th:if="${bucketItem.order == null}" type="submit" th:value="#{bucket.update}" class="btn btn-success">
+                </form>
+            </td>
+            <td>
+                <a th:if="${bucketItem.order == null}" th:href="@{'/bucket/delete/' + ${bucketItem.id}}" class="btn btn-primary" th:text="#{bucket.delete}">Delete</a>
+            </td>
+            <td>
+                <span th:if="${bucketItem.order != null}" th:text="Processed"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<div class="buttonBucket">
+    <a th:href="@{'/order'}" class="btn btn-primary" th:text="#{bucket.confirm}">Confirm</a>
+    <a th:href="@{'/home'}" class="btn btn-primary" th:text="#{backToHome}">Back to Home</a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

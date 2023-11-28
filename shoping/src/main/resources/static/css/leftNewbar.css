@@ -1,0 +1,16 @@
+@media (max-width: 991.98px) {
+    #sidebarMenu {
+        display: contents;
+    }
+
+    #sidebarMenu.show {
+        display:inline;
+    }
+
+    .navbar{
+        flex-wrap: nowrap;
+    }
+}
+
+
+

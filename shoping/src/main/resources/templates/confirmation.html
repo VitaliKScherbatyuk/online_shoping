@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/start.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/step.css">
+</head>
+<body>
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
+            <p th:text="#{step1}">Step 1</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p th:text="#{step2}">Step 2</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-primary  btn-circle">3</a>
+            <p th:text="#{step3}">Step 3</p>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: 40px">
+    <h1 style="text-align:center" th:text="#{confirm.confirm}">Order Confirmation</h1>
+    <p style="text-align:center" th:text="#{confirm.successful}">Your order has been processed successfully. Wait for the product to be delivered.</p>
+    <br>
+    <a th:href="@{/home}" class="btn btn-primary" th:text="#{backToHome}">Home page</a>
+</div>
+
+</body>
+</html>

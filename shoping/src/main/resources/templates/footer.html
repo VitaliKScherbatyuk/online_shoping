@@ -1,0 +1,100 @@
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container my-5" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <footer class="bg-dark text-center text-lg-start text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase" th:text="#{footer.about}">About us</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.story}">Сreation story</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.team}">Team</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.photo}">Photo reports</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase" th:text="#{footer.contract}">Execution of the contract</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.supply}">Supply</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.returns}">Returns</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.regulations}">Regulations</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white" th:text="#{footer.policy}">Privacy policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase" th:text="#{footer.address}">Home address</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <span th:text="#{footer.country}">Ukraine</span>
+                        </li>
+                        <li>
+                            <span th:text="#{footer.street}">Lviv, Lviv street</span>
+                        </li>
+                        <li>
+                            <span th:text="#{footer.phone}">phone: +38 (097) *** ** **</span>
+                        </li>
+                        <li>
+                            <span th:text="#{footer.email}">email: ******@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase" th:text="#{footer.write}">Write to us</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:example@example.com" class="text-white" th:text="#{footer.letter}">Write a letter</a>
+
+                        </li>
+                        <li>
+                            <a href="tel:+1234567890" class="text-white" th:text="#{footer.call}">To call</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)" >
+            <p th:text="#{footer.project}">© 2023 Project by:</p>
+            <a class="text-white" href="https://www.linkedin.com/in/v-s-485101240/"
+               target="_blank" th:text="#{footer.linkedin}">V.Scherbatyuk</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</div>
+<!-- End of .container -->

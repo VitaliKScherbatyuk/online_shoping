@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/start.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/step.css">
+</head>
+<body>
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-primary btn-circle">1</a>
+            <p th:text="#{step1}">Step 1</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p th:text="#{step2}">Step 2</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p th:text="#{step3}">Step 3</p>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col" th:text="#{bucket.productName}">Product Name</th>
+        <th scope="col" th:text="#{bucket.image}">Image</th>
+        <th scope="col" th:text="#{bucket.price}">Price</th>
+        <th scope="col" th:text="#{bucket.amount}">Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orderItem: ${order}">
+        <td th:text="${orderItem.product.productName}"></td>
+        <td>
+            <img th:src="${'data:image/jpeg;base64,' + orderItem.product.encodedImage}"
+                 alt="Product Image" style="max-width: 100px; max-height: 100px;"/>
+        </td>
+        <td th:text="${orderItem.product.price + ' грн.'}"></td>
+        <td th:text="${orderItem.amount}"></td>
+    </tr>
+    </tbody>
+</table>
+<p th:text="#{order.sum}">Total Sum: <span th:text="${totalSum}"></span> <p th:text="#{order.grn}">грн.</p></p>
+<br>
+<a th:href="@{'/order-form'}" class="btn btn-primary" th:text="#{order.next}">Next step</a>
+<br><br>
+<a th:href="@{'/home'}" class="btn btn-primary" th:text="#{backToHome}">Back to Home</a>
+</body>
+</html>
+
+
+
+
+
+
+

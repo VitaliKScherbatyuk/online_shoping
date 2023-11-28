@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Fulfillment of orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/start.css">
+</head>
+<body>
+<table class="table">
+    <h2 th:text="#{order.yourOrder}">Your orders:</h2>
+    <thead>
+    <tr>
+        <th scope="col" th:text="#{order.ID}">Order ID</th>
+        <th scope="col" th:text="#{bucket.productName}">Product Name</th>
+        <th scope="col" th:text="#{bucket.description}">Description</th>
+        <th scope="col" th:text="#{bucket.price}">Price</th>
+        <th scope="col" th:text="#{bucket.amount}">Amount</th>
+        <th scope="col" th:text="#{bucket.status}">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bucketItem: ${buckets}">
+        <td th:text="${bucketItem.order != null ? bucketItem.order.id : ''}"></td>
+        <td th:text="${bucketItem.product.productName}"></td>
+        <td th:text="${bucketItem.product.description}"></td>
+        <td th:text="${bucketItem.product.price + ' грн.'}"></td>
+        <td th:text="${bucketItem.amount}"></td>
+        <td th:if="${bucketItem.order != null}" th:text="#{order.confirm}">Confirmed</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{'/home'}" class="btn btn-primary" th:text="#{backToHome}">Back to Home</a>
+</body>
+</html>

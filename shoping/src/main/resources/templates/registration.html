@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/start.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title" th:text="#{login.registration}">Registration</h1>
+            <div class="account-wall">
+                <img class="profile-img"
+                     src="https://cdn.icon-icons.com/icons2/1725/PNG/512/4014657-buy-cell-online-phone-store_112888.png"
+                     alt="">
+                <form class="form-signin" th:action="@{/registration}" method="post" th:object="${user}">
+
+                    <label>
+                        <input type="text" class="form-control" th:placeholder="#{registration.name}" th:field="*{name}" required autofocus>
+                    </label>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;"></span><br>
+
+                    <label>
+                        <input type="number" class="form-control" th:placeholder="#{registration.age}" th:field="*{age}" required autofocus>
+                    </label>
+                    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: red;"></span><br>
+
+                    <label>
+                        <input type="email" class="form-control" th:placeholder="#{registration.email}" th:field="*{email}" required autofocus>
+                    </label>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span><br>
+
+                    <label>
+                        <input type="password" class="form-control" th:placeholder="#{registration.password}" th:field="*{password}" required>
+                    </label>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span><br>
+
+                    <label>
+                        <input type="password" class="form-control" th:placeholder="#{registration.repeat}" th:field="*{repeatingThePassword}" required>
+                    </label>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{start.registration}">
+                        Registration
+                    </button>
+                </form>
+            </div>
+            <a th:href="@{/login}" class="text-center new-account" th:text="#{login.login}">LogIn</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

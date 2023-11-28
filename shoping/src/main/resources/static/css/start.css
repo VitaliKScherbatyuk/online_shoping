@@ -1,0 +1,5 @@
+body {
+    background-image: url("https://st.depositphotos.com/2075661/3307/i/950/depositphotos_33078419-stock-photo-shopping-mall-building-interior.jpg");
+    background-color: rgba(255, 255, 255, 0.9); /* 0.95 - це прозорість від 0 (повністю прозорий) до 1 (непрозорий) */
+    background-blend-mode: lighten; /* Це може покращити ефект прозорості, враховуючи фоновий зображення */
+}
